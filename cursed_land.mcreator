@@ -1,0 +1,99 @@
+{
+  "mod_elements": [
+    {
+      "name": "CursedDirt",
+      "type": "block",
+      "compiles": false,
+      "locked_code": false,
+      "registry_name": "cursed_dirt",
+      "metadata": {
+        "files": [
+          "src/main/java/dev/leanhe/minecraft/forge/cursedland/block/CursedDirtBlock.java",
+          "src/main/resources/assets/cursed_land/models/item/cursed_dirt.json",
+          "src/main/resources/assets/cursed_land/models/block/cursed_dirt.json",
+          "src/main/resources/assets/cursed_land/blockstates/cursed_dirt.json"
+        ]
+      }
+    },
+    {
+      "name": "CursedDirtRecipe",
+      "type": "recipe",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cursed_dirt_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cursed_land/recipes/cursed_dirt_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "CursedDirtSmeltRecipe",
+      "type": "recipe",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cursed_dirt_smelt_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cursed_land/recipes/cursed_dirt_smelt_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "CursedDirtUpdateTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cursed_dirt_update_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/dev/leanhe/minecraft/forge/cursedland/procedures/CursedDirtUpdateTickProcedure.java"
+        ],
+        "dependencies": []
+      }
+    },
+    {
+      "name": "CursedDirtTab",
+      "type": "tab",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cursed_dirt_tab",
+      "metadata": {
+        "files": []
+      }
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "itemGroup.tabcursed_dirt_tab": "Cursed Dirt Tab",
+      "block.cursed_land.cursed_dirt": "Cursed Dirt"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "cursed_land",
+    "modName": "Cursed Land",
+    "version": "0.1.0",
+    "author": "KunoiSayami",
+    "websiteURL": "https://mcreator.net",
+    "license": "Affero GNU General Public License version 3 (AGPLv3)",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.18.2",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "modElementsPackage": "dev.leanhe.minecraft.forge.cursedland",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202300110610
+}

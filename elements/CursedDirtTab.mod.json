@@ -1,0 +1,11 @@
+{
+  "_fv": 39,
+  "_type": "tab",
+  "definition": {
+    "name": "Cursed Dirt Tab",
+    "icon": {
+      "value": "CUSTOM:CursedDirt"
+    },
+    "showSearch": false
+  }
+}

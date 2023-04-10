@@ -1,0 +1,21 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="Affero General Public License 3.0"
+
+[[mods]]
+modId="cursed_land"
+version="0.1.0"
+displayName="Cursed Land"
+displayURL="https://leanhe.dev"
+authors="KunoiSayami"
+
+[[dependencies.cursed_land]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2]"
+    ordering="NONE"
+    side="BOTH"
+
+
+
+
