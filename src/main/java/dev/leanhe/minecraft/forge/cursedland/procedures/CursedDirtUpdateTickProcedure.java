@@ -1,20 +1,15 @@
 package dev.leanhe.minecraft.forge.cursedland.procedures;
 
-import com.mojang.blaze3d.shaders.Effect;
 import dev.leanhe.minecraft.forge.cursedland.CursedLandMod;
-import dev.leanhe.minecraft.forge.cursedland.block.CursedDirtBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,12 +63,32 @@ class ReplaceNearBlock {
     }
 }
 
+class CanSeeSkyCheck {
+    static void tick(ServerLevel world, BlockPos pos, Random random) {
+        //CursedLandMod.LOGGER.info(world.canSeeSky(pos.above()) + " " + world.getDayTime() + " " + world.getGameTime() % 20000);
+        if (world.canSeeSky(pos.above()) && random.nextInt(100) < 25 && world.getDayTime() < 12000) {
+
+            LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(world);
+            if (entityToSpawn == null) {
+                CursedLandMod.LOGGER.warn("Can't spawn lighting");
+                return;
+            }
+            entityToSpawn.moveTo(Vec3.atBottomCenterOf(pos));
+            entityToSpawn.setVisualOnly(false);
+            world.addFreshEntity(entityToSpawn);
+            world.setBlock(pos, Blocks.GRASS_BLOCK.defaultBlockState(), 3);
+        }
+    }
+}
+
 
 public class CursedDirtUpdateTickProcedure {
     public static void execute(LevelAccessor world, BlockPos pos, Random random) {
         if (!(world instanceof ServerLevel level)) {
             return;
         }
+
+        CanSeeSkyCheck.tick(level, pos, random);
 
         if (random.nextInt(10) < 6) {
             return;
@@ -93,7 +108,6 @@ public class CursedDirtUpdateTickProcedure {
             try {
                 RealSpawnTick.execute(level, pos.above(), random);
                 ReplaceNearBlock.tick(level, pos, random);
-
             } catch (Exception e) {
                 CursedLandMod.LOGGER.fatal(e.toString());
             }
