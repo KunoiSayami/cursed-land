@@ -47,10 +47,7 @@ public class CursedDirtBlock extends Block {
     @Override
     public void tick(@NotNull BlockState blockstate, @NotNull ServerLevel world, @NotNull BlockPos pos, @NotNull Random random) {
         super.tick(blockstate, world, pos, random);
-        int x = pos.getX();
-        int y = pos.getY();
-        int z = pos.getZ();
-        CursedDirtUpdateTickProcedure.execute(world, pos, x, y, z, random);
+        CursedDirtUpdateTickProcedure.execute(world, pos, random);
         world.scheduleTick(pos, this, 8 + random.nextInt(20));
     }
 }
