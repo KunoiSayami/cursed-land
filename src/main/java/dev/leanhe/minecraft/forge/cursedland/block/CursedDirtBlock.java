@@ -21,36 +21,36 @@ import dev.leanhe.minecraft.forge.cursedland.procedures.CursedDirtUpdateTickProc
 import org.jetbrains.annotations.NotNull;
 
 public class CursedDirtBlock extends Block {
-	public CursedDirtBlock() {
-		super(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).strength(1f, 10f));
-	}
+    public CursedDirtBlock() {
+        super(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).strength(1f, 10f));
+    }
 
-	@Override
-	public int getLightBlock(BlockState state, BlockGetter worldIn, BlockPos pos) {
-		return 15;
-	}
+    @Override
+    public int getLightBlock(@NotNull BlockState state, @NotNull BlockGetter worldIn, @NotNull BlockPos pos) {
+        return 15;
+    }
 
-	@Override
-	public @NotNull List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-		List<ItemStack> dropsOriginal = super.getDrops(state, builder);
-		if (!dropsOriginal.isEmpty())
-			return dropsOriginal;
-		return Collections.singletonList(new ItemStack(this, 1));
-	}
+    @Override
+    public @NotNull List<ItemStack> getDrops(@NotNull BlockState state, LootContext.@NotNull Builder builder) {
+        List<ItemStack> dropsOriginal = super.getDrops(state, builder);
+        if (!dropsOriginal.isEmpty())
+            return dropsOriginal;
+        return Collections.singletonList(new ItemStack(this, 1));
+    }
 
-	@Override
-	public void onPlace(BlockState blockstate, Level world, BlockPos pos, BlockState oldState, boolean moving) {
-		super.onPlace(blockstate, world, pos, oldState, moving);
-		world.scheduleTick(pos, this, 5);
-	}
+    @Override
+    public void onPlace(@NotNull BlockState blockstate, @NotNull Level world, @NotNull BlockPos pos, @NotNull BlockState oldState, boolean moving) {
+        super.onPlace(blockstate, world, pos, oldState, moving);
+        world.scheduleTick(pos, this, 5);
+    }
 
-	@Override
-	public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, Random random) {
-		super.tick(blockstate, world, pos, random);
-		int x = pos.getX();
-		int y = pos.getY();
-		int z = pos.getZ();
-		CursedDirtUpdateTickProcedure.execute(world, pos, x, y, z, random);
-		world.scheduleTick(pos, this, 5);
-	}
+    @Override
+    public void tick(@NotNull BlockState blockstate, @NotNull ServerLevel world, @NotNull BlockPos pos, @NotNull Random random) {
+        super.tick(blockstate, world, pos, random);
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
+        CursedDirtUpdateTickProcedure.execute(world, pos, x, y, z, random);
+        world.scheduleTick(pos, this, 8 + random.nextInt(20));
+    }
 }
