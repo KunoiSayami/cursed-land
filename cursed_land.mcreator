@@ -3,7 +3,8 @@
     {
       "name": "CursedDirt",
       "type": "block",
-      "compiles": false,
+      "sortid": 4,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "cursed_dirt",
       "metadata": {
@@ -63,6 +64,48 @@
       "metadata": {
         "files": []
       }
+    },
+    {
+      "name": "NoLightGlass",
+      "type": "block",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "no_light_glass",
+      "metadata": {
+        "files": [
+          "src/main/java/dev/leanhe/minecraft/forge/cursedland/block/NoLightGlassBlock.java",
+          "src/main/resources/assets/cursed_land/models/block/no_light_glass.json",
+          "src/main/resources/assets/cursed_land/models/item/no_light_glass.json",
+          "src/main/resources/assets/cursed_land/blockstates/no_light_glass.json"
+        ]
+      }
+    },
+    {
+      "name": "NoLightGlassRecipe",
+      "type": "recipe",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "no_light_glass_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cursed_land/recipes/no_light_glass_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "NoLightGlassCryRecipe",
+      "type": "recipe",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "no_light_glass_cry_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cursed_land/recipes/no_light_glass_cry_recipe.json"
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -70,6 +113,7 @@
   "language_map": {
     "en_us": {
       "itemGroup.tabcursed_dirt_tab": "Cursed Dirt Tab",
+      "block.cursed_land.no_light_glass": "No Light Glass",
       "block.cursed_land.cursed_dirt": "Cursed Dirt"
     }
   },
@@ -80,9 +124,9 @@
   "workspaceSettings": {
     "modid": "cursed_land",
     "modName": "Cursed Land",
-    "version": "0.1.0",
+    "version": "0.3.0",
     "author": "KunoiSayami",
-    "websiteURL": "https://mcreator.net",
+    "websiteURL": "https://leanhe.dev",
     "license": "Affero GNU General Public License version 3 (AGPLv3)",
     "disableForgeVersionCheck": true,
     "serverSideOnly": false,
@@ -91,7 +135,7 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "forge-1.18.2",
-    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+    "credits": "Some part of this mod created by MCrator",
     "modElementsPackage": "dev.leanhe.minecraft.forge.cursedland",
     "lockBaseModFiles": false
   },

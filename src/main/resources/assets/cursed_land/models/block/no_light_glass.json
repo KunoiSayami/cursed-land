@@ -1,0 +1,10 @@
+{
+  "parent": "block/grass_block",
+  "textures": {
+    "bottom": "cursed_land:blocks/glass_default",
+    "top": "cursed_land:blocks/glass_default",
+    "side": "cursed_land:blocks/glass_default",
+    "overlay": "cursed_land:blocks/glass_default",
+    "particle": "cursed_land:blocks/glass_default"
+  }
+}

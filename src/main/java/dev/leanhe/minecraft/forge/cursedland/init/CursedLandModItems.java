@@ -17,6 +17,7 @@ import dev.leanhe.minecraft.forge.cursedland.CursedLandMod;
 
 public class CursedLandModItems {
 	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, CursedLandMod.MODID);
+	public static final RegistryObject<Item> NO_LIGHT_GLASS = block(CursedLandModBlocks.NO_LIGHT_GLASS, CursedLandModTabs.TAB_CURSED_DIRT_TAB);
 	public static final RegistryObject<Item> CURSED_DIRT = block(CursedLandModBlocks.CURSED_DIRT, CursedLandModTabs.TAB_CURSED_DIRT_TAB);
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block, CreativeModeTab tab) {
