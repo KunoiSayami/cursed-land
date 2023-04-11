@@ -64,20 +64,22 @@ class ReplaceNearBlock {
 }
 
 class CanSeeSkyCheck {
-    static void tick(ServerLevel world, BlockPos pos, Random random) {
+    static boolean tick(ServerLevel world, BlockPos pos, Random random) {
         //CursedLandMod.LOGGER.info(world.canSeeSky(pos.above()) + " " + world.getDayTime() + " " + world.getGameTime() % 20000);
-        if (world.canSeeSky(pos.above()) && random.nextInt(100) < 25 && world.getDayTime() < 12000) {
+        if (world.canSeeSky(pos.above()) && random.nextInt(100) < 40 && world.getDayTime() < 12000) {
 
             LightningBolt entityToSpawn = EntityType.LIGHTNING_BOLT.create(world);
             if (entityToSpawn == null) {
                 CursedLandMod.LOGGER.warn("Can't spawn lighting");
-                return;
+                return false;
             }
             entityToSpawn.moveTo(Vec3.atBottomCenterOf(pos));
             entityToSpawn.setVisualOnly(false);
             world.addFreshEntity(entityToSpawn);
             world.setBlock(pos, Blocks.GRASS_BLOCK.defaultBlockState(), 3);
+            return true;
         }
+        return false;
     }
 }
 
@@ -88,9 +90,11 @@ public class CursedDirtUpdateTickProcedure {
             return;
         }
 
-        CanSeeSkyCheck.tick(level, pos, random);
-
         if (random.nextInt(10) < 6) {
+            return;
+        }
+
+        if (CanSeeSkyCheck.tick(level, pos, random)) {
             return;
         }
 
