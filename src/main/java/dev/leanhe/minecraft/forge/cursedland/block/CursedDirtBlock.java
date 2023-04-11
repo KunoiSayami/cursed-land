@@ -21,6 +21,7 @@ import dev.leanhe.minecraft.forge.cursedland.procedures.CursedDirtUpdateTickProc
 import org.jetbrains.annotations.NotNull;
 
 public class CursedDirtBlock extends Block {
+    
     public CursedDirtBlock() {
         super(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).strength(1f, 10f));
     }

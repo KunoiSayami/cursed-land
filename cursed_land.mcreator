@@ -45,6 +45,7 @@
     {
       "name": "CursedDirtUpdateTick",
       "type": "procedure",
+      "sortid": 8,
       "compiles": true,
       "locked_code": false,
       "registry_name": "cursed_dirt_update_tick",
@@ -104,6 +105,18 @@
       "metadata": {
         "files": [
           "src/main/resources/data/cursed_land/recipes/no_light_glass_cry_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "CursedDirtCommand",
+      "type": "command",
+      "compiles": false,
+      "locked_code": false,
+      "registry_name": "cursed_dirt_command",
+      "metadata": {
+        "files": [
+          "src/main/java/dev/leanhe/minecraft/forge/cursedland/command/CursedDirtCommandCommand.java"
         ]
       }
     }

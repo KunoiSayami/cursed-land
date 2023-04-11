@@ -1,0 +1,9 @@
+{
+  "_fv": 39,
+  "_type": "command",
+  "definition": {
+    "commandName": "curseddirt",
+    "permissionLevel": "No requirement",
+    "argsxml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"args_start\" deletable=\"false\" x=\"40\" y=\"40\"><next><block type=\"call_procedure\"><field name=\"procedure\">DoNothingProcedure</field><next><block type=\"blockpos\"><field name=\"name\">eit</field><statement name=\"args\"><block type=\"blockstate\"><field name=\"name\">name</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">DoNothingProcedure</field></block></statement></block></statement><next><block type=\"blockstate\"><field name=\"name\">disable</field><statement name=\"args\"><block type=\"call_procedure\"><field name=\"procedure\">DoNothingProcedure</field></block></statement></block></next></block></next></block></next></block></xml>"
+  }
+}
