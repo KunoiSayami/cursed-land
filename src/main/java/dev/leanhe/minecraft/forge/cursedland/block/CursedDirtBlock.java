@@ -1,6 +1,13 @@
 
 package dev.leanhe.minecraft.forge.cursedland.block;
 
+import dev.leanhe.minecraft.forge.cursedland.tick.InfectNearbyTick;
+import dev.leanhe.minecraft.forge.cursedland.types.BlockNearby;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,7 +28,7 @@ import dev.leanhe.minecraft.forge.cursedland.procedures.CursedDirtUpdateTickProc
 import org.jetbrains.annotations.NotNull;
 
 public class CursedDirtBlock extends Block {
-    
+
     public CursedDirtBlock() {
         super(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).strength(1f, 10f));
     }
@@ -42,13 +49,48 @@ public class CursedDirtBlock extends Block {
     @Override
     public void onPlace(@NotNull BlockState blockstate, @NotNull Level world, @NotNull BlockPos pos, @NotNull BlockState oldState, boolean moving) {
         super.onPlace(blockstate, world, pos, oldState, moving);
-        world.scheduleTick(pos, this, 5);
+        if (world instanceof ServerLevel level) {
+            InfectNearbyTick.checkAndAdd(level, pos);
+        }
+        world.scheduleTick(pos, this, 8);
     }
+
+    @Override
+    public void onNeighborChange(BlockState state, LevelReader level, BlockPos pos, BlockPos neighbor) {
+        super.onNeighborChange(state, level, pos, neighbor);
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return;
+        }
+        var neighborBlock = level.getBlockState(neighbor).getBlock();
+        if (neighborBlock == Blocks.DIRT || neighborBlock == Blocks.GRASS_BLOCK) {
+            InfectNearbyTick.push(BlockNearby.create(serverLevel, pos, neighbor));
+        } else {
+            InfectNearbyTick.remove(BlockNearby.create(serverLevel, pos, neighbor));
+        }
+    }
+
+
+    @Override
+    public boolean onDestroyedByPlayer(BlockState blockstate, Level world, BlockPos pos, Player entity, boolean willHarvest, FluidState fluid) {
+        boolean retval = super.onDestroyedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
+        //MinerMachineNeighbourBlockChangesProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+        InfectNearbyTick.remove(pos);
+        return retval;
+    }
+
+    @Override
+    public void wasExploded(@NotNull Level world, @NotNull BlockPos pos, @NotNull Explosion e) {
+        super.wasExploded(world, pos, e);
+        InfectNearbyTick.remove(pos);
+        //MinerMachineNeighbourBlockChangesProcedure.execute(world, pos.getX(), pos.getY(), pos.getZ());
+    }
+
 
     @Override
     public void tick(@NotNull BlockState blockstate, @NotNull ServerLevel world, @NotNull BlockPos pos, @NotNull Random random) {
         super.tick(blockstate, world, pos, random);
         CursedDirtUpdateTickProcedure.execute(world, pos, random);
-        world.scheduleTick(pos, this, 8 + random.nextInt(20));
+        InfectNearbyTick.checkAndAdd(world, pos);
+        world.scheduleTick(pos, this, 8);
     }
 }

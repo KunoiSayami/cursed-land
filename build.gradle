@@ -10,7 +10,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'eclipse'
 
-version = '0.1.0'
+version = '0.4.0'
 group = 'dev.leanhe.minecraft.cursed_land'
 archivesBaseName = 'cursed_land'
 

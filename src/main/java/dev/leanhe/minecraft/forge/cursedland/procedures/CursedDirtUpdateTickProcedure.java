@@ -2,19 +2,17 @@ package dev.leanhe.minecraft.forge.cursedland.procedures;
 
 import com.mojang.brigadier.context.CommandContext;
 import dev.leanhe.minecraft.forge.cursedland.CursedLandMod;
+import dev.leanhe.minecraft.forge.cursedland.command.CursedDirtCommand;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.monster.*;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.util.FakePlayerFactory;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,7 +50,7 @@ class RealSpawnTick {
 
 class ReplaceNearBlock {
 
-    static boolean enabled = true;
+    static boolean enabled = false;
 
     static void tick(ServerLevel world, BlockPos pos, Random random) {
         var state = world.getBlockState(pos);
@@ -127,27 +125,22 @@ public class CursedDirtUpdateTickProcedure {
         }
     }
 
-    public static int toggleSkyCheck(CommandContext<CommandSourceStack> _commandSourceStackCommandContext) {
+    public static int toggleSkyCheck(CommandContext<CommandSourceStack> commandSourceStackCommandContext) {
         CanSeeSkyCheck.enabled = !CanSeeSkyCheck.enabled;
+        CursedDirtCommand.sendMessageToPlayer(commandSourceStackCommandContext, "Set SkyCheck to " + CanSeeSkyCheck.enabled);
         return 0;
     }
 
 
-    public static int toggleReplaceBlock(CommandContext<CommandSourceStack> _commandSourceStackCommandContext) {
+    public static int toggleReplaceBlock(CommandContext<CommandSourceStack> commandSourceStackCommandContext) {
         ReplaceNearBlock.enabled = !ReplaceNearBlock.enabled;
+        CursedDirtCommand.sendMessageToPlayer(commandSourceStackCommandContext, "Set ReplaceNearbyBlock to" + ReplaceNearBlock.enabled);
         return 0;
     }
 
     public static int getCommandStatus(CommandContext<CommandSourceStack> commandSourceStackCommandContext) {
-        var source = commandSourceStackCommandContext.getSource();
-        ///source.sendSuccess(new TextComponent("114514"), false);
-        var entity = source.getEntity();
-        if (entity == null) {
-            entity = FakePlayerFactory.getMinecraft(source.getLevel());
-        }
-        if (entity instanceof Player player && !player.level.isClientSide())
-            player.displayClientMessage(new TextComponent("CanSeeSkyCheck => " + CanSeeSkyCheck.enabled +
-                    ", ReplaceBlock => " + ReplaceNearBlock.enabled), false);
+        CursedDirtCommand.sendMessageToPlayer(commandSourceStackCommandContext, "CanSeeSkyCheck => " + CanSeeSkyCheck.enabled +
+                ", ReplaceBlock => " + ReplaceNearBlock.enabled);
         return 0;
     }
 
