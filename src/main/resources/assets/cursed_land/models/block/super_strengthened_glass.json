@@ -1,0 +1,10 @@
+{
+  "parent": "block/grass_block",
+  "textures": {
+    "bottom": "cursed_land:blocks/super_strengthened_glass_surface",
+    "top": "cursed_land:blocks/super_strengthened_glass_surface",
+    "side": "cursed_land:blocks/super_strengthened_glass_surface",
+    "overlay": "cursed_land:blocks/super_strengthened_glass_surface",
+    "particle": "cursed_land:blocks/super_strengthened_glass_surface"
+  }
+}

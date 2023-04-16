@@ -1,5 +1,6 @@
 {
   "itemGroup.tabcursed_dirt_tab": "Cursed Dirt Tab",
   "block.cursed_land.no_light_glass": "No Light Glass",
-  "block.cursed_land.cursed_dirt": "Cursed Dirt"
+  "block.cursed_land.cursed_dirt": "Cursed Dirt",
+  "block.cursed_land.super_strengthened_glass": "Super Strengthened Glass"
 }

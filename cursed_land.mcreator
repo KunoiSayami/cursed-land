@@ -111,12 +111,54 @@
     {
       "name": "CursedDirtCommand",
       "type": "command",
-      "compiles": false,
+      "compiles": true,
       "locked_code": false,
       "registry_name": "cursed_dirt_command",
       "metadata": {
         "files": [
           "src/main/java/dev/leanhe/minecraft/forge/cursedland/command/CursedDirtCommandCommand.java"
+        ]
+      }
+    },
+    {
+      "name": "SuperStrengthenedGlass",
+      "type": "block",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "super_strengthened_glass",
+      "metadata": {
+        "files": [
+          "src/main/java/dev/leanhe/minecraft/forge/cursedland/block/SuperStrengthenedGlassBlock.java",
+          "src/main/resources/assets/cursed_land/blockstates/super_strengthened_glass.json",
+          "src/main/resources/assets/cursed_land/models/block/super_strengthened_glass.json",
+          "src/main/resources/assets/cursed_land/models/item/super_strengthened_glass.json"
+        ]
+      }
+    },
+    {
+      "name": "SuperStrengthenedGlassRecipe",
+      "type": "recipe",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "super_strengthened_glass_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cursed_land/recipes/super_strengthened_glass_recipe.json"
+        ]
+      }
+    },
+    {
+      "name": "SuperStrengthenGlassCryRecipe",
+      "type": "recipe",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "super_strengthen_glass_cry_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cursed_land/recipes/super_strengthen_glass_cry_recipe.json"
         ]
       }
     }
@@ -127,7 +169,8 @@
     "en_us": {
       "itemGroup.tabcursed_dirt_tab": "Cursed Dirt Tab",
       "block.cursed_land.no_light_glass": "No Light Glass",
-      "block.cursed_land.cursed_dirt": "Cursed Dirt"
+      "block.cursed_land.cursed_dirt": "Cursed Dirt",
+      "block.cursed_land.super_strengthened_glass": "Super Strengthened Glass"
     }
   },
   "foldersRoot": {
@@ -137,7 +180,7 @@
   "workspaceSettings": {
     "modid": "cursed_land",
     "modName": "Cursed Land",
-    "version": "0.3.0",
+    "version": "0.4.0-rc",
     "author": "KunoiSayami",
     "websiteURL": "https://leanhe.dev",
     "license": "Affero GNU General Public License version 3 (AGPLv3)",

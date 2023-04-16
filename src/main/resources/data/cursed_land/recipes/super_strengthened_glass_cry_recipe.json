@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "010",
+    "000",
+    "000"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:glass"
+    },
+    "1": {
+      "item": "minecraft:crying_obsidian"
+    }
+  },
+  "result": {
+    "item": "cursed_land:super_strengthened_glass",
+    "count": 16
+  }
+}
