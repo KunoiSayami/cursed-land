@@ -27,6 +27,7 @@ import java.util.Collections;
 import dev.leanhe.minecraft.forge.cursedland.procedures.CursedDirtUpdateTickProcedure;
 import org.jetbrains.annotations.NotNull;
 
+
 public class CursedDirtBlock extends Block {
 
     public CursedDirtBlock() {

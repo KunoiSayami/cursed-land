@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "cursed_land:blocks/cursedearthbottom",
+    "up": "cursed_land:blocks/cursed_dirt_puls_surface",
+    "north": "cursed_land:blocks/cursedearthside",
+    "east": "cursed_land:blocks/cursedearthside",
+    "south": "cursed_land:blocks/cursedearthside",
+    "west": "cursed_land:blocks/cursedearthside",
+    "particle": "cursed_land:blocks/cursedearthbottom"
+  }
+}

@@ -161,6 +161,35 @@
           "src/main/resources/data/cursed_land/recipes/super_strengthen_glass_cry_recipe.json"
         ]
       }
+    },
+    {
+      "name": "CursedDirtPlus",
+      "type": "block",
+      "sortid": 12,
+      "compiles": false,
+      "locked_code": false,
+      "registry_name": "cursed_dirt_plus",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/cursed_land/models/item/cursed_dirt_plus.json",
+          "src/main/java/dev/leanhe/minecraft/forge/cursedland/block/CursedDirtPlusBlock.java",
+          "src/main/resources/assets/cursed_land/models/block/cursed_dirt_plus.json",
+          "src/main/resources/assets/cursed_land/blockstates/cursed_dirt_plus.json"
+        ]
+      }
+    },
+    {
+      "name": "CursedDirtPlusRecipe",
+      "type": "recipe",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cursed_dirt_plus_recipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cursed_land/recipes/cursed_dirt_plus_recipe.json"
+        ]
+      }
     }
   ],
   "variable_elements": [],
@@ -169,6 +198,7 @@
     "en_us": {
       "itemGroup.tabcursed_dirt_tab": "Cursed Dirt Tab",
       "block.cursed_land.no_light_glass": "No Light Glass",
+      "block.cursed_land.cursed_dirt_plus": "Cursed Dirt Plus",
       "block.cursed_land.cursed_dirt": "Cursed Dirt",
       "block.cursed_land.super_strengthened_glass": "Super Strengthened Glass"
     }

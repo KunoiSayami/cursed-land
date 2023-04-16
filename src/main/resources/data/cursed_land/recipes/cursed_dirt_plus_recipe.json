@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "cursed_land:cursed_dirt"
+    },
+    {
+      "item": "cursed_land:cursed_dirt"
+    },
+    {
+      "item": "cursed_land:cursed_dirt"
+    },
+    {
+      "item": "cursed_land:cursed_dirt"
+    },
+    {
+      "item": "cursed_land:cursed_dirt"
+    },
+    {
+      "item": "cursed_land:cursed_dirt"
+    },
+    {
+      "item": "cursed_land:cursed_dirt"
+    },
+    {
+      "item": "cursed_land:cursed_dirt"
+    }
+  ],
+  "result": {
+    "item": "cursed_land:cursed_dirt_plus",
+    "count": 1
+  }
+}
